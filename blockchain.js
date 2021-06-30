@@ -31,6 +31,12 @@ class Blockchain {
     this.pendingTransactions.push(newTransaction);
     return this.getLastBlock["index"] + 1;
   }
+  hashBlock(previousBlockHash, currentBlockData, nonce) {
+    const dataAsString =
+      previousBlockHash + nonce.toString() + JSON.stringify(currentBlockData);
+    const hash = sha256(dataAsString);
+    return hash;
+  }
 }
 
 module.exports = Blockchain;
