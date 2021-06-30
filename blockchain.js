@@ -1,3 +1,5 @@
+const sha256 = require("sha256");
+
 class Blockchain {
   constructor() {
     this.chain = [];

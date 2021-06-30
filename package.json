@@ -21,5 +21,8 @@
   "homepage": "https://github.com/Przemo246/Learning-blockchain#readme",
   "devDependencies": {
     "jest": "^27.0.6"
+  },
+  "dependencies": {
+    "sha256": "^0.2.0"
   }
 }
