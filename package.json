@@ -4,7 +4,7 @@
   "description": "This repository is to learn blockchain technology",
   "main": "blockchain.js",
   "scripts": {
-    "test": "jest"
+    "start": "nodemon --watch dev -e js dev/api.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
   "homepage": "https://github.com/Przemo246/Learning-blockchain#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "nodemon": "^2.0.14",
     "sha256": "^0.2.0"
   }
 }
