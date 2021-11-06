@@ -1,7 +1,9 @@
 const express = require("express");
+const { v4: uuidv4 } = require("uuid");
 const app = express();
 const Blockchain = require("./blockchain");
 
+const nodeAddress = uuidv4().split("-").join("");
 const bitcoin = new Blockchain();
 
 app.use(express.json());
@@ -33,6 +35,8 @@ app.get("/mine", function (req, res) {
     currentBlockData,
     nonce
   );
+  // Reward the miner
+  bitcoin.createNewTransaction(12.5, "00", nodeAddress);
   const newBlock = bitcoin.createNewBlock(nonce, previousBlockHash, blockHash);
   res.json({
     note: "New block mined sucessfully",
