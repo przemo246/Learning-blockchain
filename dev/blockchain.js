@@ -30,7 +30,7 @@ class Blockchain {
       recipient,
     };
     this.pendingTransactions.push(newTransaction);
-    return this.getLastBlock["index"] + 1;
+    return this.getLastBlock()["index"] + 1;
   }
   hashBlock(previousBlockHash, currentBlockData, nonce) {
     const dataAsString =
@@ -48,3 +48,5 @@ class Blockchain {
     return nonce;
   }
 }
+
+module.exports = Blockchain;
