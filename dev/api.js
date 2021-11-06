@@ -25,6 +25,8 @@ app.post("/transaction", function (req, res) {
 app.get("/mine", function (req, res) {
   const lastBlock = bitcoin.getLastBlock();
   const previousBlockHash = lastBlock["hash"];
+  // Reward the miner
+  bitcoin.createNewTransaction(12.5, "00", nodeAddress);
   const currentBlockData = {
     transactions: bitcoin.pendingTransactions,
     index: lastBlock["index"] + 1,
@@ -35,8 +37,6 @@ app.get("/mine", function (req, res) {
     currentBlockData,
     nonce
   );
-  // Reward the miner
-  bitcoin.createNewTransaction(12.5, "00", nodeAddress);
   const newBlock = bitcoin.createNewBlock(nonce, previousBlockHash, blockHash);
   res.json({
     note: "New block mined sucessfully",
